@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wallpapers/screen/category.dart';
-import 'package:wallpapers/screen/mainhome.dart';
+import 'package:wallpapers/screen/main_home.dart';
 import 'package:wallpapers/screen/settings.dart';
 
 class Home extends StatefulWidget{
@@ -13,10 +13,11 @@ class _HomeState extends State<Home>{
   var pageIndex = 0;
   PageController pageController = PageController();
 
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    var  check =  pageIndex % 2 == 0 ? Colors.amber : Colors.black;
+    return SafeArea(
+      child: Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -31,7 +32,6 @@ class _HomeState extends State<Home>{
             Text('Wallpapers', textAlign: TextAlign.center, style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600, color: Colors.black)),
           ],
         ),
-        //  backgroundColor: state.themeData.primaryColor
       ),
       body: Container(
         color: Colors.white,
@@ -50,26 +50,30 @@ class _HomeState extends State<Home>{
         backgroundColor: Colors.white,
         selectedItemColor: Colors.amber,
         unselectedItemColor: Colors.black,
+        showSelectedLabels: true,
+        showUnselectedLabels: false,
         elevation: 10,
         currentIndex: pageIndex,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text('Home', style: TextStyle(fontSize: 14, color: Colors.black,)),
+            title: Text('Home', style: TextStyle(fontSize: 14, color: check,)),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.category),
-            title: Text('Category', style: TextStyle(fontSize: 14, color: Colors.black,))
+            title: Text('Category', style: TextStyle(fontSize: 14, color: Colors.amber,))
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            title: Text('Settings', style: TextStyle(fontSize: 14, color: Colors.black,))
+            title: Text('Settings', style: TextStyle(fontSize: 14, color: check,))
           ),
         ],
         onTap: navigationTapped,
+       ),
       ),
     );
   }
+
    onPageChanged(int value){
    setState(() {
     pageIndex = value; 
@@ -78,6 +82,7 @@ class _HomeState extends State<Home>{
 
  navigationTapped(int value){
    pageController.animateToPage(value,
-    duration: const Duration(milliseconds: 300), curve: Curves.ease);
+    duration: const Duration(milliseconds: 200), curve: Curves.ease);
  }
+
 }
