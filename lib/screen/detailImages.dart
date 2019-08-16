@@ -1,11 +1,28 @@
 import 'package:flutter/material.dart';
 
-class DetailImages extends StatelessWidget{
+class DetailImages extends StatefulWidget{
   @override
-  Widget build(BuildContext context) {
+  State<StatefulWidget> createState() {
+    return DetailImagesState();
+  }
+}
+
+class DetailImagesState extends State<DetailImages>{
+
+  showListIndexImages(){
     return Container(
-      color: Colors.blue,
+      child: Text('data', textAlign: TextAlign.center,),
     );
   }
-
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        appBar: null,
+        body: showListIndexImages(),
+      ),
+    );
+  }
 }
+
+  

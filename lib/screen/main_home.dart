@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:wallpapers/screen/detailImages.dart';
 
 class MainBody extends StatefulWidget{
   @override
@@ -15,14 +16,15 @@ class MainBodyState extends State<MainBody>{
    'lib/images/1.jpg',
    'lib/images/2.jpg',
    'lib/images/3.jpg',
+   'lib/images/5.jpg',
+   'lib/images/6.jpg',
+   'lib/images/7.jpg',
+   'lib/images/8.jpg',
+   'lib/images/9.jpg',
+   'lib/images/10.jpg',
+   'lib/images/11.jpg',
+   'lib/images/.jpg',
    'lib/images/102.jpg',
-   'lib/images/102.jpg',
-   'lib/images/102.jpg',
-   'lib/images/102.jpg',
-   'lib/images/102.jpg',
-   'lib/images/102.jpg',
-   'lib/images/102.jpg',
-
   ];
 
   listImages(){
@@ -79,6 +81,7 @@ class MainBodyState extends State<MainBody>{
             AssetImage('lib/images/1.jpg'),
             AssetImage('lib/images/102.jpg'),
             AssetImage('lib/images/3.jpg'),
+            AssetImage('lib/images/9.jpg'),
           ],
       ),
     );
@@ -109,7 +112,7 @@ class MainBodyState extends State<MainBody>{
 
   _gridViewImages(){
     return Container(
-      height: 1000,
+      height: 1800,
       child: GridView.builder(itemCount: gridViewImages.length, 
       physics: NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 2/2.8),
@@ -130,7 +133,8 @@ class MainBodyState extends State<MainBody>{
       child: GestureDetector(
         child: Image.asset('${showImagesList}', fit: BoxFit.cover, height: 80, width: 80,),
         onTap: (){
-          Navigator.of(context).pushNamed('/detailImages');
+          // Navigator.of(context).pushNamed('/detailImages');
+          Navigator.push(context, MaterialPageRoute(builder: (context) => DetailImages()),);
         },
       ),
     );
