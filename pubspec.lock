@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0"
+  awesome_loader:
+    dependency: "direct main"
+    description:
+      name: awesome_loader
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.3"
   boolean_selector:
     dependency: transitive
     description:
@@ -95,6 +102,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.3"
+  residemenu:
+    dependency: "direct main"
+    description:
+      name: residemenu
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.3.7"
   sky_engine:
     dependency: transitive
     description: flutter

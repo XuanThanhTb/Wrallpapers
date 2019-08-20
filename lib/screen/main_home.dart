@@ -1,8 +1,7 @@
-import 'dart:developer';
-
+import 'package:awesome_loader/awesome_loader.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
-import 'package:wallpapers/screen/detailImages.dart';
+import 'package:wallpapers/screen/wallpaper.dart';
 
 class MainBody extends StatefulWidget{
   @override
@@ -10,9 +9,10 @@ class MainBody extends StatefulWidget{
     return MainBodyState();
   }
 }
+
 class MainBodyState extends State<MainBody>{
 
-  List<dynamic> gridViewImages= [
+  List<String> gridViewImages= [
    'lib/images/1.jpg',
    'lib/images/2.jpg',
    'lib/images/3.jpg',
@@ -27,13 +27,29 @@ class MainBodyState extends State<MainBody>{
    'lib/images/102.jpg',
   ];
 
+  @override
+  Widget build(BuildContext context) {
+    // ThemeData  = Theme.of(context);
+    return SafeArea(
+      child: Scaffold(
+        appBar: null,
+        body: listImages(),
+      ),
+    );
+  }
+
   listImages(){
-    return Container( 
+    return Container(
+      color: Colors.white, 
       height: double.infinity,
       margin: EdgeInsets.only(),
       child:ListView(
       scrollDirection: Axis.vertical,
       children: <Widget>[
+        AwesomeLoader(
+          loaderType: AwesomeLoader.AwesomeLoader1,
+          color: Colors.amber,
+        ),
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
@@ -72,16 +88,18 @@ class MainBodyState extends State<MainBody>{
       margin: EdgeInsets.symmetric(),
         child: Carousel(
           dotSize: 5,
-          dotIncreaseSize: 2.0,
+          dotIncreaseSize: 2,
           borderRadius: true,
+          indicatorBgPadding: 0,
+          boxFit: BoxFit.cover,
           radius: Radius.circular(10.0),
           animationCurve: Curves.easeOutSine,
           animationDuration: Duration(seconds: 5),
           images: [
             AssetImage('lib/images/1.jpg'),
-            AssetImage('lib/images/102.jpg'),
             AssetImage('lib/images/3.jpg'),
             AssetImage('lib/images/9.jpg'),
+            // AssetImage('lib/images/102.jpg'),
           ],
       ),
     );
@@ -119,22 +137,28 @@ class MainBodyState extends State<MainBody>{
       scrollDirection: Axis.vertical,
       controller: new ScrollController(keepScrollOffset: false),
       itemBuilder: (BuildContext buildContext, int index) {
-        return showImages(gridViewImages[index], index);
+        return showImages(gridViewImages[index], index, );
         },
       ),
     );
   }
 
-  showImages(showImagesList, imagesIndex){
+  showImages(showImagesList, imagesIndex, ){
     return Container(
       padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
       height: 80,
       width: 80,
       child: GestureDetector(
-        child: Image.asset('${showImagesList}', fit: BoxFit.cover, height: 80, width: 80,),
+        child: Image.asset('${showImagesList}', fit: BoxFit.cover, height: 60, width: 60,),
         onTap: (){
-          // Navigator.of(context).pushNamed('/detailImages');
-          Navigator.push(context, MaterialPageRoute(builder: (context) => DetailImages()),);
+          Navigator.push(context, 
+            MaterialPageRoute(builder: (context) =>
+             DetailImages(
+               heroId: imagesIndex, 
+               imageUrl: showImagesList, ), 
+              //  themeData: ),
+            ),
+          );
         },
       ),
     );
@@ -143,15 +167,7 @@ class MainBodyState extends State<MainBody>{
   seeAll(){
 
   }
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: null,
-        body: listImages(),
-      ),
-    );
-  }
 }
+
+
 
