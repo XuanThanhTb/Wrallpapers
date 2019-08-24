@@ -1,6 +1,6 @@
-import 'package:awesome_loader/awesome_loader.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:wallpapers/all_images/see_all_images.dart';
 import 'package:wallpapers/screen/wallpaper.dart';
 
 class MainBody extends StatefulWidget{
@@ -23,17 +23,17 @@ class MainBodyState extends State<MainBody>{
    'lib/images/9.jpg',
    'lib/images/10.jpg',
    'lib/images/11.jpg',
-   'lib/images/.jpg',
+  //  'lib/images/.jpg',
    'lib/images/102.jpg',
   ];
 
   @override
   Widget build(BuildContext context) {
-    // ThemeData  = Theme.of(context);
     return SafeArea(
       child: Scaffold(
         appBar: null,
         body: listImages(),
+       
       ),
     );
   }
@@ -46,10 +46,6 @@ class MainBodyState extends State<MainBody>{
       child:ListView(
       scrollDirection: Axis.vertical,
       children: <Widget>[
-        AwesomeLoader(
-          loaderType: AwesomeLoader.AwesomeLoader1,
-          color: Colors.amber,
-        ),
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
@@ -99,7 +95,6 @@ class MainBodyState extends State<MainBody>{
             AssetImage('lib/images/1.jpg'),
             AssetImage('lib/images/3.jpg'),
             AssetImage('lib/images/9.jpg'),
-            // AssetImage('lib/images/102.jpg'),
           ],
       ),
     );
@@ -137,13 +132,12 @@ class MainBodyState extends State<MainBody>{
       scrollDirection: Axis.vertical,
       controller: new ScrollController(keepScrollOffset: false),
       itemBuilder: (BuildContext buildContext, int index) {
-        return showImages(gridViewImages[index], index, );
+        return showImages(gridViewImages[index], index,  gridViewImages);
         },
       ),
     );
   }
-
-  showImages(showImagesList, imagesIndex, ){
+  showImages(showImagesList, imagesIndex, gridViewImages){
     return Container(
       padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
       height: 80,
@@ -155,8 +149,8 @@ class MainBodyState extends State<MainBody>{
             MaterialPageRoute(builder: (context) =>
              DetailImages(
                heroId: imagesIndex, 
-               imageUrl: showImagesList, ), 
-              //  themeData: ),
+               imageUrl: showImagesList, 
+               listImage: gridViewImages), 
             ),
           );
         },
@@ -165,7 +159,7 @@ class MainBodyState extends State<MainBody>{
   }
 
   seeAll(){
-
+    Navigator.push(context, MaterialPageRoute(builder: (context) => SeeAllImages()),);
   }
 }
 

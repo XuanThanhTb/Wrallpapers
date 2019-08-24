@@ -77,7 +77,6 @@ class SettingsPageState extends State<SettingsPage>{
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        // crossAxisAlignment: CrossAxisAlignment,
         children: <Widget>[
           GestureDetector(
             child: Row(

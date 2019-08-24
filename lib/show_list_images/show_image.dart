@@ -1,20 +1,17 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:residemenu/residemenu.dart';
 import 'package:wallpapers/screen/category.dart';
 import 'package:wallpapers/screen/main_home.dart';
 import 'package:wallpapers/screen/settings.dart';
-import 'package:wallpapers/scroll_loading/load_data_fack.dart';
 
-class Home extends StatefulWidget{
+class HomeShowImages extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-    return HomeState();
+    return HomeShowImagesState();
   }
 }
 
-class HomeState extends State<Home> with TickerProviderStateMixin{
+class HomeShowImagesState extends State<HomeShowImages> with TickerProviderStateMixin{
   MenuController menuController;
   var pageIndex = 0;
   PageController pageController = PageController();
@@ -102,7 +99,7 @@ class HomeState extends State<Home> with TickerProviderStateMixin{
           controller: pageController,
           onPageChanged: onPageChanged,
           children: <Widget>[
-            HomeLoadingFack(),
+            MainBody(),
             Category(),
             SettingsPage(),
           ],

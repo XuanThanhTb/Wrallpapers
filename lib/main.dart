@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:wallpapers/screen/home.dart';
 import 'package:wallpapers/screen/wallpaper.dart';
+import 'package:wallpapers/scroll_loading/loading.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MaterialApp(
+   debugShowCheckedModeBanner: false,
+   home: HomeLoad(),
+));
 
 class MyApp extends StatelessWidget{
   @override
@@ -11,8 +14,6 @@ class MyApp extends StatelessWidget{
       routes: {
         '/detailImages': (context) => DetailImages(),
       },
-      debugShowCheckedModeBanner: false,
-      home: Home(),
     );
   }
 }
