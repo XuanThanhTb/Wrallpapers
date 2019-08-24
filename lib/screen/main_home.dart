@@ -143,7 +143,7 @@ class MainBodyState extends State<MainBody>{
       height: 80,
       width: 80,
       child: GestureDetector(
-        child: Image.asset('${showImagesList}', fit: BoxFit.cover, height: 60, width: 60,),
+        child: Image.asset('${showImagesList.toString()}', fit: BoxFit.cover, height: 60, width: 60,),
         onTap: (){
           Navigator.push(context, 
             MaterialPageRoute(builder: (context) =>

@@ -32,7 +32,7 @@ class HomeState extends State<Home> with TickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
-    var  check =  pageIndex % 2 == 0 ? Colors.amber : Colors.black;
+    // var  check =  pageIndex % 2 == 0 ? Colors.amber : Colors.black;
     return ResideMenu.scaffold(
       decoration: BoxDecoration(
         image:DecorationImage(image: AssetImage('lib/images/6.jpg'),
@@ -114,20 +114,21 @@ class HomeState extends State<Home> with TickerProviderStateMixin{
         unselectedItemColor: Colors.black,
         showSelectedLabels: true,
         showUnselectedLabels: false,
+        type: BottomNavigationBarType.fixed,
         elevation: 10,
         currentIndex: pageIndex,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text('Home', style: TextStyle(fontSize: 14, color: check,)),
+            title: Text('Home', style: TextStyle(fontSize: 14,)),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.category),
-            title: Text('Category', style: TextStyle(fontSize: 14, color: Colors.amber,))
+            title: Text('Category', style: TextStyle(fontSize: 14,))
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            title: Text('Settings', style: TextStyle(fontSize: 14, color: check,))
+            title: Text('Settings', style: TextStyle(fontSize: 14, ))
           ),
         ],
         onTap: navigationTapped,
