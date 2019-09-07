@@ -32,7 +32,6 @@ class HomeState extends State<Home> with TickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
-    // var  check =  pageIndex % 2 == 0 ? Colors.amber : Colors.black;
     return ResideMenu.scaffold(
       decoration: BoxDecoration(
         image:DecorationImage(image: AssetImage('lib/images/6.jpg'),
