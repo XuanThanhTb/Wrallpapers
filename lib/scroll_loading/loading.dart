@@ -32,9 +32,6 @@ onDoneLoading(){
        ),
       ),
       child: Center(
-        // child: CircularProgressIndicator(
-        //   valueColor: AlwaysStoppedAnimation<Color>(Colors.redAccent),
-        // ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
