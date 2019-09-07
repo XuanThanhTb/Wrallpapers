@@ -50,7 +50,6 @@ class SettingsPageState extends State<SettingsPage>{
                               color: colors[index]),
                             ),
                           ),
-                          // Text(themes[index], style: ,)
                         ],
                       ),
                       Column(
