@@ -141,7 +141,7 @@ class HomeState extends State<Home> with TickerProviderStateMixin{
     pageIndex = value; 
    });
  }
-
+ 
  navigationTapped(int value){
    pageController.animateToPage(value,
     duration: const Duration(milliseconds: 200), curve: Curves.ease);

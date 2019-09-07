@@ -23,7 +23,6 @@ class MainBodyState extends State<MainBody>{
    'lib/images/9.jpg',
    'lib/images/10.jpg',
    'lib/images/11.jpg',
-  //  'lib/images/.jpg',
    'lib/images/102.jpg',
   ];
 
